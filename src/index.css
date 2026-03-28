@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-textLight font-sans antialiased overflow-x-hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Slightly wider to show gradient better */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* Transparent track for cleaner look */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #2dd4bf, #3b82f6);
+  /* Gradient from Teal to Blue */
+  border-radius: 10px;
+  border: 2px solid #0f172a;
+  /* Border matching body bg creates a "floating" effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #5eead4, #60a5fa);
+  /* Brighter gradient on hover */
+}
+
+/* Firefox support */
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #0f172a;
+  }
+}

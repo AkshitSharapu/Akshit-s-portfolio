@@ -1,16 +1,28 @@
-# Akshit's Portfolio
+﻿# Sharapu Akshit — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio and developer showcase platform for Sharapu Akshit — Full-Stack & Generative AI Engineer, SAP ABAP Cloud Specialist.
 
-Currently, two official plugins are available:
+Live: [akshit-s-portfolio-roan.vercel.app](https://akshit-s-portfolio-roan.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Deployment on Vercel
 
-## React Compiler
+- **Framework Preset**: Other
+- **Build Command**: *(leave blank)*
+- **Output Directory**: . *(current directory)*
+- **Environment Variables**: *None required*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The contact form opens an email draft directly to \kshitsharapu@gmail.com\.
 
-## Expanding the ESLint configuration
+## Features
+- **Modern Grayscale Design**: #0a0a0a dark background with #1a1a1a cards, #e6e6e6 accents, and Inter typography.
+- **GSAP 3.15 Animations**: Staggered hero entrance, role rotation, interactive custom cursor, and animated metrics counters.
+- **Performance Optimized**: Compiled Tailwind CSS, native browser scrolling, and full support for \prefers-reduced-motion\.
+- **Complete Case Studies**: Eco Sync, Document Analyzer (NLP ~40% time reduction), Style AI, and Personal Portfolio.
+- **Comprehensive Resume**: Direct download link to \Sharapu_Akshit_Resume.pdf\.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Editing & Syncing
+Edit \index.html\, then run:
+\\\ash
+python generate_portfolio.py
+\\\
+to sync changes into \portfolio.html\.

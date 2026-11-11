@@ -266,6 +266,59 @@
     @media (max-width:767px) { .name-backdrop { color:rgba(255,255,255,.06); } }
     @media (prefers-reduced-motion:reduce) { .name-row { animation:none; } .tilt-card { transition:none; } }
 
+    /* Open to Hire badge — green */
+    .open-to-hire-dot { background: #22c55e !important; }
+    .pulse-radar.open-to-hire-dot::after { background: #22c55e !important; }
+    .open-to-hire-text { color: #22c55e !important; }
+
+    /* Animated role reveal — 3-word cycle, smooth slide */
+    .role-cycle-wrap {
+      overflow: hidden;
+      height: 1.45em;
+      position: relative;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+    .role-cycle-inner {
+      display: flex;
+      flex-direction: column;
+      animation: role-slide 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .role-cycle-inner span {
+      flex-shrink: 0;
+      height: 1.45em;
+      line-height: 1.45;
+      display: block;
+      white-space: nowrap;
+    }
+    @keyframes role-slide {
+      0%        { transform: translateY(0); }
+      28%       { transform: translateY(0); }
+      33.333%   { transform: translateY(-33.333%); }
+      61%       { transform: translateY(-33.333%); }
+      66.666%   { transform: translateY(-66.666%); }
+      95%       { transform: translateY(-66.666%); }
+      100%      { transform: translateY(0); }
+    }
+    /* Blinking caret */
+    .role-caret {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: #e6e6e6;
+      margin-left: 3px;
+      vertical-align: middle;
+      animation: caret-blink 1.1s step-end infinite;
+    }
+    @keyframes caret-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .role-cycle-inner { animation: none; }
+      .role-caret { animation: none; }
+    }
+
   
     /* Editorial portrait, without the dashboard-card shell. */
     .portrait-composition { position:relative; width:min(100%,370px); margin:20px auto; padding:0 0 0 18px; }
@@ -313,6 +366,7 @@
   <script defer src="assets/vendor/gsap.min.js"></script>
   <script defer src="assets/portfolio.js"></script>
 <link rel="icon" type="image/svg+xml" href="assets/akshit-mark.svg">
+<link rel="icon" type="image/png" href="assets/akshit-mark.png">
 <meta name="theme-color" content="#0a0a0a">
 </head>
 
@@ -367,9 +421,9 @@
       <!-- Right Action CTA (Primary CTA Button #e6e6e6, Resume Link) -->
       <div class="flex items-center gap-3">
         <!-- Live status pill -->
-        <div class="hidden sm:flex items-center gap-2 bg-[#1a1a1a] border border-[#737373]/30 px-3 py-1.5 rounded-full text-xs font-mono text-zinc-300">
-          <span class="size-2 rounded-full bg-[#e6e6e6] pulse-radar"></span>
-          <span>Open to Hire</span>
+        <div class="hidden sm:flex items-center gap-2 bg-[#1a1a1a] border border-[#22c55e]/30 px-3 py-1.5 rounded-full text-xs font-mono">
+          <span class="size-2 rounded-full open-to-hire-dot pulse-radar"></span>
+          <span class="open-to-hire-text font-semibold">Open to Hire</span>
         </div>
 
         <!-- Resume Download Button -->
@@ -424,9 +478,14 @@
               <span class="gradient-text font-black">Sharapu Akshit</span>
             </h1>
             
-            <div class="role-line text-xl sm:text-2xl font-mono font-medium text-zinc-300">
-              <svg class="role-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15m-6-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span id="scramble-role" class="text-white border-b-2 border-[#e6e6e6]/80 pb-0.5">Full-Stack & Generative AI Engineer</span>
+            <div class="role-line text-xl sm:text-2xl font-mono font-semibold text-white mt-1" aria-label="Full-Stack &amp; Generative AI Engineer">
+              <span class="role-cycle-wrap">
+                <span class="role-cycle-inner" aria-hidden="true">
+                  <span>Full-Stack &amp; Gen AI Engineer</span>
+                  <span>SAP ABAP Cloud Specialist</span>
+                  <span>NLP &amp; Data Science Builder</span>
+                </span>
+              </span><span class="role-caret" aria-hidden="true"></span>
             </div>
           </div>
 
@@ -675,7 +734,7 @@
               <button class="open-modal-btn text-xs font-mono text-zinc-400 hover:text-white underline" data-project="ecosync">
                 Case Study
               </button>
-              <a href="https://github.com/AkshitSharapu" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
+              <a href="https://github.com/AkshitSharapu/Intelligent-waste-management" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
                 <span>View Code</span>
                 <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
@@ -727,12 +786,12 @@
           </div>
 
           <div class="pt-4 border-t border-[#737373]/20 flex items-center justify-between">
-            <span class="text-xs font-mono text-[#e6e6e6] font-semibold">⚡ ~40% Time Reduction</span>
+            <span class="text-xs font-mono text-[#e6e6e6] font-semibold">~40% Time Reduction</span>
             <div class="flex items-center gap-3">
               <button class="open-modal-btn text-xs font-mono text-zinc-400 hover:text-white underline" data-project="documentanalyzer">
                 Case Study
               </button>
-              <a href="https://github.com/AkshitSharapu" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
+              <a href="https://github.com/Charan-Teja-Kushuma/AI-Powered-Resume-Analyser" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
                 <span>View Code</span>
                 <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
@@ -788,7 +847,7 @@
               <button class="open-modal-btn text-xs font-mono text-zinc-400 hover:text-white underline" data-project="styleai">
                 Case Study
               </button>
-              <a href="https://github.com/AkshitSharapu" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
+              <a href="https://github.com/AkshitSharapu/Style-AI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
                 <span>View Code</span>
                 <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
@@ -844,7 +903,11 @@
               <button class="open-modal-btn text-xs font-mono text-zinc-400 hover:text-white underline" data-project="portfolio">
                 Case Study
               </button>
-              <a href="https://akshit-s-portfolio-roan.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
+              <a href="https://github.com/AkshitSharapu/Akshit-s-portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#e6e6e6] hover:underline">
+                <span>View Code</span>
+                <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <a href="https://akshit-s-portfolio-roan.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-zinc-400 hover:text-white hover:underline">
                 <span>Live Site</span>
                 <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
